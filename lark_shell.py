@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# type: ignore
 """
 Initial author: Bryan Hu .
 
@@ -21,22 +22,32 @@ the_input = ""
 
 
 def handler(_, newtext):  # Lark parse here
+    parse(newtext, the_input, output)
+
+
+def parse(grammar, parse_input, output_obj):
     try:
-        tree = lark.Lark(newtext).parse(the_input)
-    except (lark.exceptions.GrammarError, ValueError):
-        output.set_text(("error", "Incomplete grammar"))
-    except Exception as e:
-        output.set_text(repr(e))
+        _ = lark.Lark(grammar)
+        tree = _.parse(parse_input)
+    except (lark.exceptions.GrammarError, TypeError):
+        output_obj.set_text(("error", "Incomplete grammar"))
+    except (lark.exceptions.UnexpectedToken, lark.exceptions.UnexpectedEOF) as e:
+        output_obj.set_text(("error", repr(e)))
+    except FileNotFoundError:
+        output_obj.set_text(("error", "File not found"))
+
+    except Exception as e:  # Everything else...
+        output_obj.set_text(("error", repr(e)))
     else:
-        output.set_text(repr(tree.pretty()))
+        output_obj.set_text(("success", str(tree.pretty())))
 
 
-def new_input(_, newtext):
-    the_input = newtext  # noqa
+def new_input(_, newinput):
+    parse(lark_grammar.get_edit_text(), newinput, output)
 
 
-def vertical_wrapper(ui):
-    return urwid.ListBox(urwid.SimpleFocusListWalker(ui))
+# def vertical_wrapper(ui):
+#     return urwid.ListBox(urwid.SimpleFocusListWalker(ui))
 
 
 lark_grammar = urwid.Edit(("bold", "Grammar\n"), multiline=True, allow_tab=True)
@@ -53,6 +64,14 @@ UI = [
     output,
 ]
 main_ui = urwid.Filler(urwid.Pile(UI))
-PALLETE = [("wait", "yellow", ""), ("error", "light red", ""), ("bold", "bold", "")]
+PALLETE = [
+    ("bold", "bold", ""),
+    ("wait", "yellow", ""),
+    ("error", "light red", ""),
+    ("success", "light green", ""),
+]
 loop = urwid.MainLoop(main_ui, palette=PALLETE)
-loop.run()
+try:
+    loop.run()
+except KeyboardInterrupt:
+    exit(0)
