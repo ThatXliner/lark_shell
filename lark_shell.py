@@ -15,9 +15,10 @@ For playing with Lark.
 """
 import urwid
 import lark
+import sys
 
-output = urwid.Text(("wait", "Output waiting..."))
-
+output = urwid.SelectableIcon(("wait", "Output waiting..."))
+meta = urwid.SelectableIcon(("success", f"Lark-parser, version {lark.__version__}"))
 the_input = ""
 
 
@@ -29,10 +30,11 @@ def parse(grammar, parse_input, output_obj):
     try:
         _ = lark.Lark(grammar)
         tree = _.parse(parse_input)
+
     except (lark.exceptions.GrammarError, TypeError):
-        output_obj.set_text(("error", "Incomplete grammar"))
+        output_obj.set_text(("error", "Incomplete grammar!"))
     except (lark.exceptions.UnexpectedToken, lark.exceptions.UnexpectedEOF) as e:
-        output_obj.set_text(("error", repr(e)))
+        output_obj.set_text(("error", str(e)))
     except FileNotFoundError:
         output_obj.set_text(("error", "File not found"))
 
@@ -58,10 +60,11 @@ urwid.connect_signal(grammar_input, "change", new_input)
 
 UI = [
     urwid.LineBox(lark_grammar),
-    # urwid.Divider(div_char="-"),
     urwid.LineBox(grammar_input),
     urwid.Divider(div_char="-"),
     output,
+    urwid.Divider(div_char="-"),
+    meta,
 ]
 main_ui = urwid.Filler(urwid.Pile(UI))
 PALLETE = [
@@ -74,4 +77,4 @@ loop = urwid.MainLoop(main_ui, palette=PALLETE)
 try:
     loop.run()
 except KeyboardInterrupt:
-    exit(0)
+    sys.exit(0)
