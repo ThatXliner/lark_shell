@@ -1,4 +1,4 @@
-# Lark_shell
+# Lark-shell
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Lark_shell](#larkshell)
@@ -26,7 +26,11 @@ and it's not offline. So I decided to bring those features right into my termina
 
 ## How to use
 
-TK
+Install it via pip:
+
+```bash
+python3 -m pip install lark-shell
+```
 
 
 

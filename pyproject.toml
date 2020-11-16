@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "lark_shell"
+name = "lark-shell"
 version = "0.1.0"
 description = "A terminal Lark IDE"
 authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
