@@ -13,20 +13,20 @@ An implementation of https://lark-parser.github.io/lark/ide/app.html in the term
 For playing with Lark.
 
 """
-import urwid
-import lark
 import sys
+
+import lark
+import urwid
 
 output = urwid.SelectableIcon(("wait", "Output waiting..."))
 meta = urwid.SelectableIcon(("success", f"Lark-parser, version {lark.__version__}"))
-the_input = ""
 
 
-def handler(_, newtext):  # Lark parse here
-    parse(newtext, the_input, output)
+def update_grammar(_, new_text):
+    _parse(new_text, grammar_input.get_edit_text(), output)
 
 
-def parse(grammar, parse_input, output_obj):
+def _parse(grammar, parse_input, output_obj):  # Lark parse here
     try:
         _ = lark.Lark(grammar)
         tree = _.parse(parse_input)
@@ -44,19 +44,15 @@ def parse(grammar, parse_input, output_obj):
         output_obj.set_text(("success", str(tree.pretty())))
 
 
-def new_input(_, newinput):
-    parse(lark_grammar.get_edit_text(), newinput, output)
-
-
-# def vertical_wrapper(ui):
-#     return urwid.ListBox(urwid.SimpleFocusListWalker(ui))
+def update_input(_, new_input):
+    _parse(lark_grammar.get_edit_text(), new_input, output)
 
 
 lark_grammar = urwid.Edit(("bold", "Grammar\n"), multiline=True, allow_tab=True)
 grammar_input = urwid.Edit(("bold", "Grammar input\n"), multiline=True, allow_tab=True)
 
-urwid.connect_signal(lark_grammar, "change", handler)
-urwid.connect_signal(grammar_input, "change", new_input)
+urwid.connect_signal(lark_grammar, "change", update_grammar)
+urwid.connect_signal(grammar_input, "change", update_input)
 
 UI = [
     urwid.LineBox(lark_grammar),
