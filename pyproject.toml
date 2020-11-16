@@ -3,14 +3,39 @@ name = "lark_shell"
 version = "0.1.0"
 description = "A terminal Lark IDE"
 authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
-license = "GNU GPL v3+"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/ThatXliner/lark_shell/"
+homepage = "https://github.com/ThatXliner/lark_shell/"
+classifiers = [
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",  # Optional support
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Development Status :: 4 - Beta",
+    "Natural Language :: English",
+    "Operating System :: POSIX",
+    "Environment :: Console",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+keywords = ["lark", "lark-parser", "urwid", "tool", "terminal"]
+
+[tool.poetry.urls]
+"Source Code" = "https://github.com/ThatXliner/lark_shell"
+"Bug Tracker" = "https://github.com/ThatXliner/lark_shell/issues"
+"Say Thanks! "= "https://saythanks.io/to/bryan.hu.2020@gmail.com"
+
+[tool.poetry.scripts]
+lark_shell = "lark_shell:main"
 
 [tool.poetry.dependencies]
 python = "^3.6"
 urwid = "^2.1.2"
-lark-parser = "^0.11.0"
+lark-parser = "^0.6"
 
 [tool.poetry.dev-dependencies]
+# We don't have a pytest test suite yet
 flake8 = "^3.8.4"
 pylint = "^2.6.0"
 black = "^20.8b1"
