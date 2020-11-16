@@ -1,11 +1,15 @@
 # Lark-shell
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Lark_shell](#larkshell)
+- [Lark-shell](#lark-shell)
 	- [Background](#background)
 	- [How to use](#how-to-use)
+		- [Demonstration](#demonstration)
+	- [Credits](#credits)
 
 <!-- /TOC -->
+
+<img src="assets/feature.png">
 <p align="center">
     <a href="https://saythanks.io/to/bryan.hu.2020@gmail.com">
         <img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg" alt="Say Thanks!">
@@ -38,6 +42,10 @@ and invoke the command
 $ lark-shell
 ```
 and start hacking away!
+
+### Demonstration
+
+![A demo of using lark-shell](assets/demo.svg)
 
 ## Credits
 
