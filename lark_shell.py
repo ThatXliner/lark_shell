@@ -28,8 +28,8 @@ def update_grammar(_, new_text):
 
 def _parse(grammar, parse_input, output_obj):  # Lark parse here
     try:
-        _ = lark.Lark(grammar)
-        tree = _.parse(parse_input)
+        parser = lark.Lark(grammar, parser="earley", lexer="auto")
+        tree = parser.parse(parse_input)
 
     except (lark.exceptions.GrammarError, TypeError):
         output_obj.set_text(("error", "Incomplete grammar!"))
@@ -70,7 +70,14 @@ PALLETE = [
     ("success", "light green", ""),
 ]
 loop = urwid.MainLoop(main_ui, palette=PALLETE)
-try:
-    loop.run()
-except KeyboardInterrupt:
-    sys.exit(0)
+
+
+def main():
+    try:
+        loop.run()
+    except KeyboardInterrupt:
+        sys.exit(0)
+
+
+if __name__ == "__main__":  # Main entry point
+    main()
