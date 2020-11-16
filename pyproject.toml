@@ -5,7 +5,7 @@ description = "A terminal Lark IDE"
 authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-repository = "https://github.com/ThatXliner/lark_shell/"
+# repository = "https://github.com/ThatXliner/lark_shell/"  # Replaced with "Source Code"
 homepage = "https://github.com/ThatXliner/lark_shell/"
 classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
@@ -32,7 +32,7 @@ lark_shell = "lark_shell:main"
 [tool.poetry.dependencies]
 python = "^3.6"
 urwid = "^2.1.2"
-lark-parser = "^0.6"
+lark-parser = ">=0.8.0,<1.0.0"  # Not sure if "^0.8.0" would work
 
 [tool.poetry.dev-dependencies]
 # We don't have a pytest test suite yet
@@ -45,3 +45,7 @@ mypy = "^0.790"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+line_length = 90

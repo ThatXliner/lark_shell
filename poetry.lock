@@ -111,7 +111,7 @@ colors = ["colorama (>=0.4.3,<0.5.0)"]
 
 [[package]]
 name = "lark-parser"
-version = "0.11.0"
+version = "0.11.1"
 description = "a modern parsing library"
 category = "main"
 optional = false
@@ -271,7 +271,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "1f18c0d22732bfe413325abcdaa4884ad4c7a17498495993c044f3787e8ce2d3"
+content-hash = "023bc325d443981542893e02bc811b3197ec94270b258bf7db5c6553aab684d9"
 
 [metadata.files]
 appdirs = [
@@ -310,8 +310,8 @@ isort = [
     {file = "isort-5.6.4.tar.gz", hash = "sha256:dcaeec1b5f0eca77faea2a35ab790b4f3680ff75590bfcb7145986905aab2f58"},
 ]
 lark-parser = [
-    {file = "lark-parser-0.11.0.tar.gz", hash = "sha256:d047e680418221d21be587cd8f36843df97479a5623b74a7d811c1d832e04989"},
-    {file = "lark_parser-0.11.0-py2.py3-none-any.whl", hash = "sha256:1d710d4c4664b52579aae80324ff409dedc22b5c592684429f6bd11bfeb7fd49"},
+    {file = "lark-parser-0.11.1.tar.gz", hash = "sha256:20bdefdf1b6e9bcb38165ea5cc4f27921a99c6f4c35264a3a953fd60335f1f8c"},
+    {file = "lark_parser-0.11.1-py2.py3-none-any.whl", hash = "sha256:8b747e1f544dcc2789e3feaddd2a50c6a73bed69d62e9c69760c1e1f7d23495f"},
 ]
 lazy-object-proxy = [
     {file = "lazy-object-proxy-1.4.3.tar.gz", hash = "sha256:f3900e8a5de27447acbf900b4750b0ddfd7ec1ea7fbaf11dfa911141bc522af0"},
