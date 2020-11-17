@@ -9,7 +9,8 @@
 
 <!-- /TOC -->
 
-<img src="assets/feature.png">
+![Vanity Image](https://raw.githubusercontent.com/ThatXliner/lark_shell/master/assets/feature.png)
+
 <p align="center">
     <a href="https://saythanks.io/to/bryan.hu.2020@gmail.com">
         <img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg" alt="Say Thanks!">
@@ -18,7 +19,7 @@
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
     </a>
     <a href="https://gitmoji.carloscuesta.me">
-        <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg" alt="Gitmoji">
+        <img src="https://raw.githubusercontent.com/ThatXliner/gitmoji/master/public/static/gitmoji_badge.svg" alt="Gitmoji">
     </a>
 </p>
 
@@ -37,7 +38,7 @@ Install it via [pip][4]:
 $ python3 -m pip install lark-shell
 ✨🍰✨
 ```
-or via [pipx][5]
+or via [pipx][5] (which will install lark-shell only as an executable)
 
 ```bash
 $ pipx install lark-shell
