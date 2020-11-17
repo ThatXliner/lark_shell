@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "lark-shell"
-version = "0.1.1"
-description = "A terminal Lark IDE"
+version = "0.1.2"
+description = "A terminal version of the online Lark IDE"
 authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
