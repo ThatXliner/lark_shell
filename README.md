@@ -22,7 +22,7 @@
     </a>
 </p>
 
-A terminal version of the [online IDE][1].
+A terminal version of the [online Lark IDE][1].
 
 ## Background
 
