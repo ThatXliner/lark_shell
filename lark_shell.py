@@ -6,7 +6,7 @@ Initial author: Bryan Hu .
 
 @ThatXliner .
 
-Version: v0.1.2
+Version: v0.1.3
 
 An implementation of https://lark-parser.github.io/lark/ide/app.html in the terminal.
 
@@ -20,7 +20,7 @@ import lark
 import urwid
 import warnings
 
-__version__ = "v0.1.2"
+__version__ = "0.1.3"
 output = urwid.SelectableIcon(("wait", "Output waiting..."))  # Initially wait for input
 meta = urwid.SelectableIcon(
     ("success", f"Lark version: {lark.__version__}\nLark_shell version: {__version__}")
