@@ -6,7 +6,7 @@ Initial author: Bryan Hu .
 
 @ThatXliner .
 
-Version: v0.1.3
+Version: v0.1.4
 
 An implementation of https://lark-parser.github.io/lark/ide/app.html in the terminal.
 
@@ -20,7 +20,7 @@ import lark
 import urwid
 import warnings
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 # Constants
 STATE_MAP = {"Earley": "earley", "LALR(1)": "lalr", "CYK": "cyk"}
