@@ -106,6 +106,10 @@ def main() -> None:
         sys.exit(0)
 
 
+class DeprecatedNameWarning(DeprecationWarning):
+    pass
+
+
 def deprecated_main() -> None:
     """The main CLI entry point that issues a deprecation warning
 
@@ -115,7 +119,10 @@ def deprecated_main() -> None:
         This function does not return anything.
 
     """
-    warnings.warn("The executable name lark_shell is deprecated", DeprecationWarning)
+    warnings.warn(
+        "The executable lark_shell is deprecated. Use lark-shell instead.",
+        DeprecatedNameWarning,
+    )
     try:
         loop.run()
     except KeyboardInterrupt:

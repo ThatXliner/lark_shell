@@ -28,7 +28,7 @@ keywords = ["lark", "lark-parser", "urwid", "tool", "terminal"]
 
 [tool.poetry.scripts]
 lark-shell = "lark_shell:main"
-lark_shell = "lark_shell:deprecated_main"
+lark_shell = "lark_shell:deprecated_main"  # Deprecated
 
 [tool.poetry.dependencies]
 python = "^3.6"
