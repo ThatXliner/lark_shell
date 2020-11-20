@@ -84,6 +84,9 @@ PALLETE = [
 ]
 
 loop = urwid.MainLoop(urwid.Filler(urwid.Pile(UI)), palette=PALLETE)
+# We use urwid.Filler because it needs to be centered. If we left out urwid.Filler
+# then urwid would scream at me. I want to replace urwid.Filler, though.
+# - ThatXliner
 
 
 def main() -> None:
