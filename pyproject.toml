@@ -27,7 +27,8 @@ keywords = ["lark", "lark-parser", "urwid", "tool", "terminal"]
 "Say Thanks! "= "https://saythanks.io/to/bryan.hu.2020@gmail.com"
 
 [tool.poetry.scripts]
-lark_shell = "lark_shell:main"
+lark-shell = "lark_shell:main"
+lark_shell = "lark_shell:deprecated_main"
 
 [tool.poetry.dependencies]
 python = "^3.6"
