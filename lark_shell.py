@@ -71,8 +71,8 @@ def _parse(
         tree = parser.parse(parse_input)
 
     # Parsing errors
-    except (lark.exceptions.GrammarError, TypeError):
-        output_obj.set_text(("error", "Incomplete grammar!"))
+    except (lark.exceptions.GrammarError, TypeError) as e:
+        output_obj.set_text(("error", f"Incomplete grammar!\n{str(e)}"))
     except lark.exceptions.ParseError as e:
         output_obj.set_text(("error", str(e)))
     except lark.exceptions.UnexpectedInput as e:
