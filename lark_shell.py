@@ -42,15 +42,16 @@ def _parse(grammar: str, parse_input: str, output_obj: urwid.Text) -> None:
     except (lark.exceptions.GrammarError, TypeError):
         output_obj.set_text(("error", "Incomplete grammar!"))
 
-    except (lark.exceptions.UnexpectedToken, lark.exceptions.UnexpectedEOF) as e:
+    except lark.exceptions.UnexpectedEOF as e:
         output_obj.set_text(("error", str(e)))
+
+    except lark.exceptions.UnexpectedInput as e:
+        output_obj.set_text(("error", str(e.get_context(parse_input))))
 
     except FileNotFoundError:  # The relative imported file was not found
         output_obj.set_text(("error", "File not found"))
 
-    # NOTE(ThatXliner): We're doing this for now until we can
-    # get all the expected exceptions
-    except Exception as e:  # XXX
+    except lark.exceptions.LarkError as e:
         output_obj.set_text(("error", repr(e)))
 
     else:  # Parsing succeeded
