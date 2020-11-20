@@ -45,7 +45,7 @@ $ pipx install lark-shell
 ✨🍰✨
 ```
 
-If you want to contribute, see the [contributing guide](./CONTRIBUTING.md)
+If you want to contribute, see the [contributing guide](https://github.com/ThatXliner/lark_shell/blob/master/CONTRIBUTING.md)
 
 ## How to use
 
@@ -59,7 +59,7 @@ and start hacking away!
 
 ### Demonstration
 
-![A demo of using lark-shell](assets/demo.svg)
+![A demo of using lark-shell](https://raw.githubusercontent.com/ThatXliner/lark_shell/master/assets/demo.svg)
 
 This screencast of my [epic][8] [terminal][7] and [shell][6] is made with [asciinema][4] and [svg-term-cli][5].
 
