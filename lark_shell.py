@@ -6,7 +6,7 @@ Initial author: Bryan Hu .
 
 @ThatXliner .
 
-Version: v0.1.0
+Version: v0.1.2
 
 An implementation of https://lark-parser.github.io/lark/ide/app.html in the terminal.
 
@@ -19,8 +19,11 @@ import sys
 import lark
 import urwid
 
+__version__ = "v0.1.2"
 output = urwid.SelectableIcon(("wait", "Output waiting..."))  # Initially wait for input
-meta = urwid.SelectableIcon(("success", f"Lark-parser, version {lark.__version__}"))
+meta = urwid.SelectableIcon(
+    ("success", f"Lark version: {lark.__version__}\nLark_shell version: {__version__}")
+)
 
 
 def _update_grammar(_, new_text: str) -> None:
@@ -39,15 +42,16 @@ def _parse(grammar: str, parse_input: str, output_obj: urwid.Text) -> None:
     except (lark.exceptions.GrammarError, TypeError):
         output_obj.set_text(("error", "Incomplete grammar!"))
 
-    except (lark.exceptions.UnexpectedToken, lark.exceptions.UnexpectedEOF) as e:
+    except lark.exceptions.UnexpectedEOF as e:
         output_obj.set_text(("error", str(e)))
+
+    except lark.exceptions.UnexpectedInput as e:
+        output_obj.set_text(("error", str(e.get_context(parse_input))))
 
     except FileNotFoundError:  # The relative imported file was not found
         output_obj.set_text(("error", "File not found"))
 
-    # NOTE(ThatXliner): We're doing this for now until we can
-    # get all the expected exceptions
-    except Exception as e:  # XXX
+    except lark.exceptions.LarkError as e:
         output_obj.set_text(("error", repr(e)))
 
     else:  # Parsing succeeded
@@ -81,6 +85,9 @@ PALLETE = [
 ]
 
 loop = urwid.MainLoop(urwid.Filler(urwid.Pile(UI)), palette=PALLETE)
+# We use urwid.Filler because it needs to be centered. If we left out urwid.Filler
+# then urwid would scream at me. I want to replace urwid.Filler, though.
+# - ThatXliner
 
 
 def main() -> None:
