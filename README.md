@@ -52,7 +52,7 @@ If you want to contribute, see the [contributing guide](https://github.com/ThatX
 If you installed the package correctly, you can just run
 
 ```bash
-$ lark_shell
+$ lark-shell
 ```
 
 and start hacking away!
