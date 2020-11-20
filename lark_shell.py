@@ -18,6 +18,7 @@ import sys
 
 import lark
 import urwid
+import warnings
 
 __version__ = "v0.1.2"
 output = urwid.SelectableIcon(("wait", "Output waiting..."))  # Initially wait for input
@@ -99,6 +100,22 @@ def main() -> None:
         This function does not return anything.
 
     """
+    try:
+        loop.run()
+    except KeyboardInterrupt:
+        sys.exit(0)
+
+
+def deprecated_main() -> None:
+    """The main CLI entry point that issues a deprecation warning
+
+    Returns
+    -------
+    None
+        This function does not return anything.
+
+    """
+    warnings.warn("The executable name lark_shell is deprecated", DeprecationWarning)
     try:
         loop.run()
     except KeyboardInterrupt:
