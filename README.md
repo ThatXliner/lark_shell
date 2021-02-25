@@ -23,6 +23,8 @@
     </a>
 </p>
 
+**NOTE: NOT ACTIVELY MAINTAINED.** There is also an official graphical version [here](https://github.com/lark-parser/ide)
+
 A terminal version of the [online Lark IDE][1].
 
 ## Background
