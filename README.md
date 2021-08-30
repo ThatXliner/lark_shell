@@ -70,7 +70,7 @@ This screencast of my [epic][8] [terminal][7] and [shell][6] is made with [ascii
 Credits to [**@erezsh**][2] for his wonderful [Lark][3] parsing library.
 
 
-[1]: https://lark-parser.github.io/lark/ide/app.html
+[1]: https://lark-parser.github.io/ide/
 [2]: https://github.com/erezsh
 [3]: https://github.com/lark-parser/lark
 [4]: https://github.com/asciinema/asciinema
